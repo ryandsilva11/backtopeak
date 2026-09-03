@@ -7,6 +7,7 @@
 ## 🧠 A Regra de Ouro: Como Estudar com IA sem Ficar Dependente
 
 Para recuperar a velocidade e a lógica afiada:
+
 1. **Sessões "Mãos no Teclado" (Sem IA):** Durante os exercícios diários de algoritmos e sintaxe pura, **não use copilotos ou autocomplete inteligente**. Force o cérebro a lembrar a sintaxe, imports e tipos.
 2. **IA como Mentora (Não como Digiladora):** Use a IA para:
    - Revisar seu código após você terminar (*Code Review*).
@@ -17,11 +18,11 @@ Para recuperar a velocidade e a lógica afiada:
 
 ## ⏱️ Estrutura da Rotina Diária Recomendada (2h a 3h/dia)
 
-| Bloco | Duração | Foco | O que fazer |
-| :--- | :--- | :--- | :--- |
-| **1. Aquecimento Mecânico** | 30 min | Lógica & Sintaxe (Zero IA) | 1 a 2 problemas no Beecrowd / LeetCode (Java ou JS/Python) |
-| **2. Teoria Direta ao Ponto** | 45 min | Fechar Lacunas | Vídeos recomendados, documentação e mapas mentais |
-| **3. Prática & Construção** | 1h a 1h30 | Projeto & Aplicação | Codar o projeto da semana, criar schemas SQL, construir APIs |
+| Bloco                                | Duração | Foco                        | O que fazer                                                  |
+| :----------------------------------- | :-------- | :-------------------------- | :----------------------------------------------------------- |
+| **1. Aquecimento Mecânico**   | 30 min    | Lógica & Sintaxe (Zero IA) | 1 a 2 problemas no Beecrowd / LeetCode (Java ou JS/Python)   |
+| **2. Teoria Direta ao Ponto**  | 45 min    | Fechar Lacunas              | Vídeos recomendados, documentação e mapas mentais         |
+| **3. Prática & Construção** | 1h a 1h30 | Projeto & Aplicação       | Codar o projeto da semana, criar schemas SQL, construir APIs |
 
 ---
 
@@ -45,6 +46,7 @@ timeline
 ---
 
 ### SEMANA 1: Desbloqueio Mecânico de Sintaxe & POO Forte em Java
+
 * **Meta:** Reativar a fluência em Java e garantir que conceitos avançados de POO (Interfaces, Polimorfismo, Coleções) saiam no automático.
 * **Tópicos:**
   - Tipagem estática, Loops, Arrays vs Lists (`ArrayList`, `HashMap`, `HashSet`).
@@ -59,6 +61,7 @@ timeline
 ---
 
 ### SEMANA 2: Banco de Dados Relacional (SQL) Sem Medo
+
 * **Meta:** Eliminar a trava com SQL e aprender a modelar, consultar e relacionar dados com naturalidade.
 * **Tópicos:**
   - Modelagem Relacional (1:1, 1:N, N:N, Chaves Primárias e Estrangeiras).
@@ -75,6 +78,7 @@ timeline
 ---
 
 ### SEMANA 3: Fundamentos Web (HTML5, CSS Moderno) & Como a Rede Funciona
+
 * **Meta:** Eliminar o medo do Front-end (layout na prática com Flexbox/Grid) e entender como a Web e as requisições HTTP funcionam.
 * **Tópicos:**
   - **HTML5 Semântico:** Estrutura limpa (`header`, `nav`, `main`, `section`, `article`, `footer`, `form`).
@@ -93,6 +97,7 @@ timeline
 ---
 
 ### SEMANA 4: JavaScript Moderno, DOM & Assincronismo
+
 * **Meta:** Conectar o HTML/CSS com JavaScript moderno e aprender a consumir dados de APIs externas.
 * **Tópicos:**
   - ES6+: `const`/`let`, Arrow Functions, Destructuring, Template Literals, Spread Operator.
@@ -112,6 +117,7 @@ timeline
 ---
 
 ### SEMANAS 5 e 6: Construção do Projeto Estrela (Full Stack / API + DB)
+
 * **Meta:** Desenvolver um projeto completo, arquitetado profissionalmente, que será o centro do seu currículo e das entrevistas.
 * **Opção Recomendada (Java + Spring Boot OU Node.js/TypeScript):**
   - **Backend:** API REST em Java Spring Boot (ou Node.js) com CRUD completo, validações e tratamento de erros.
@@ -125,6 +131,7 @@ timeline
 ---
 
 ### SEMANA 7: Otimização de Perfil, Currículo e Presença
+
 * **Meta:** Deixar sua vitrine irresistível para recrutadores de estágio.
 * **Ações:**
   - **LinkedIn:** Título estratégico (ex: *Estudante de DSM | Java | Spring Boot | SQL | JavaScript*), resumo focado em capacidade de aprendizado e paixão por resolver problemas.
@@ -134,6 +141,7 @@ timeline
 ---
 
 ### SEMANA 8: Treinamento de Entrevistas & Disparo de Candidaturas
+
 * **Meta:** Conquistar entrevistas e passar nos testes com confiança.
 * **Ações:**
   - **Simulação de Testes Técnicos:** Resolver questões clássicas de entrevista (Palíndromo, Inversão de String, Two Sum, Queries com Join).
