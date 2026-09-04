@@ -4,7 +4,7 @@ public abstract class Hero {
     private int vida;
     private int pontosDeAtaque;
 
-    private Hero(String nome, int vida, int pontosDeAtaque) {
+    public Hero(String nome, int vida, int pontosDeAtaque) {
         this.nome = nome;
         this.vida = vida;
         this.pontosDeAtaque = pontosDeAtaque;
