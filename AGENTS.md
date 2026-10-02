@@ -1,4 +1,3 @@
-
 # Perfil Técnico e Contexto do Usuário
 
 ## 1. Informações Pessoais e Acadêmicas
@@ -22,7 +21,7 @@
 
 ## 4. Histórico com Linguagens de Programação
 
-- **Python 3:** Muita prática em lógica pura e sintaxe. *Observação:* Ainda não aplicou os conceitos de POO especificamente nesta linguagem.
+- **Python 3:** Muita prática em lógica pura e sintaxe. '*Observação:* Ainda não aplicou os conceitos de POO especificamente nesta linguagem.
 - **Java:** Prática de 1 ano e meio durante o curso técnico (focado em lógica e POO). *Estado atual:* Domina os conceitos, mas necessita de uma revisão rápida na sintaxe por falta de uso recente.
 - **C#:** Utilizado no ecossistema Unity para o desenvolvimento de jogos.
 

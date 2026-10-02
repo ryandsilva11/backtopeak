@@ -2,8 +2,9 @@ public class Mage extends Hero {
 
     private int mana;
 
-    public Mage(String nome, int vida, int pontosDeAtaque) {
+    public Mage(String nome, int vida, int pontosDeAtaque, int mana) {
         super(nome, vida, pontosDeAtaque);
+        this.mana = mana;
     }
 
     @Override

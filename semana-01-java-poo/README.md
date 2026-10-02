@@ -23,11 +23,13 @@ Crie os seguintes arquivos dentro desta pasta (`semana-01-java-poo/`):
 1. **`Heroi.java`** (Classe Abstrata)
 
    - **Atributos privados:**
+
      - `nome` (String)
      - `vida` (int)
      - `pontosDeAtaque` (int)
    - **Construtor:** Que recebe `(String nome, int vida, int pontosDeAtaque)`.
    - **Métodos:**
+
      - Getters e Setters (com regra: a vida não pode ficar menor que 0).
      - `public void receberDano(int dano)`: Subtrai a vida e avisa no console quanto de dano tomou e a vida restante.
      - `public abstract void executarAtaque(Heroi alvo)`: Método abstrato que cada subclasse implementará do seu jeito.
