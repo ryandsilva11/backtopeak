@@ -26,16 +26,20 @@ public abstract class Hero {
         this.nome = nome;
     }
 
-    public void setVida(int dano) {
-        if (dano > this.vida) {
-            this.vida = 0;
-        } else {
-            this.vida -= dano;
-        }
+    public void setVida(int vida) {
+        this.vida = vida;
     }
 
     public void receberDano(int dano) {
-        this.setVida(dano);
+        if (dano > this.vida) {
+            this.setVida(0);
+        } else {
+            this.setVida(this.vida - dano);
+        }
+    }
+
+    public boolean estaVivo() {
+        return this.vida > 0;
     }
 
     public abstract void executarAtaque(Hero alvo);

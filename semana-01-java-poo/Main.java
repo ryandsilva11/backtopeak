@@ -11,27 +11,25 @@ public class Main {
 
             System.out.printf("=".repeat(15) + "TURNO %d" + "=".repeat(15) + "\n", cont);
 
-            if (warrior.getVida() <= 0) {
-                System.out.printf("A vitória é de %s!\n", mage.getNome());
+            warrior.executarAtaque(mage);
+            System.out.printf("%s atacou %s, deixando-o com %d de vida!\n",
+                    warrior.getNome(), mage.getNome(), mage.getVida());
+
+            if (!mage.estaVivo()) {
+                System.out.printf("\nA vitória é de %s!", warrior.getNome());
                 break;
-            } else {
-                warrior.executarAtaque(mage);
-                System.out.printf("%s atacou %s, deixando-o com %d de vida!\n",
-                        warrior.getNome(), mage.getNome(), mage.getVida());
             }
 
             System.out.println();
 
-            if (mage.getVida() <= 0) {
-                System.out.printf("A vitória é de %s!\n", warrior.getNome());
+            mage.executarAtaque(warrior);
+            System.out.printf("%s atacou %s, deixando-o com %d de vida!\n",
+                    mage.getNome(), warrior.getNome(), warrior.getVida());
+
+            if (!warrior.estaVivo()) {
+                System.out.printf("\nA vitória é de %s!", mage.getNome());
                 break;
-            } else {
-                mage.executarAtaque(warrior);
-                System.out.printf("%s atacou %s, deixando-o com %d de vida!\n",
-                        mage.getNome(), warrior.getNome(), warrior.getVida());
-
             }
-
         }
     }
 }
