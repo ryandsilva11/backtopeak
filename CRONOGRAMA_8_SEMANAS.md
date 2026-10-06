@@ -68,7 +68,7 @@ timeline
   - DDL (CREATE, ALTER, DROP) e DML (INSERT, UPDATE, DELETE).
   - Consultas Avançadas: `WHERE`, `LIKE`, `IN`, `GROUP BY`, `HAVING`, `ORDER BY`.
   - **Joins na veia:** `INNER JOIN`, `LEFT JOIN`, `RIGHT JOIN`.
-* **Exercício Prático da Semana:**
+* l
   - Modelar o banco de dados de um e-commerce ou sistema de biblioteca (5+ tabelas relacionadas).
   - Escrever um script com 15 queries complexas respondendo a perguntas de negócio (ex: "Top 3 clientes que mais gastaram no último mês").
 * **Recursos Recomendados:**
@@ -152,7 +152,7 @@ timeline
 
 ## 📊 Checklist de Progresso
 
-- [ ] **Semana 1:** Java & POO Reativados (Projeto Console concluído)
+- [X] **Semana 1:** Java & POO Reativados (Projeto Console concluído)
 - [ ] **Semana 2:** SQL Dominado (15 queries com Joins resolvidas)
 - [ ] **Semana 3:** Redes & HTTP (Testes no Postman concluídos)
 - [ ] **Semana 4:** JS Moderno & Async/Fetch Dominados
