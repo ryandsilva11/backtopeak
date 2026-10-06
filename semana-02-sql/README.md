@@ -7,7 +7,8 @@ Bem-vindo à Semana 02! O objetivo aqui é eliminar qualquer trava com SQL, domi
 ## 🎯 Desafio 01: O Banco de Dados do RPG (`rpg_db`)
 
 ### 📌 Conceitos a Praticar:
-- [x] Criação de tabelas com chaves primárias e auto-incremento (`CREATE TABLE`, `PRIMARY KEY`, `AUTO_INCREMENT`)
+
+- [X] Criação de tabelas com chaves primárias e auto-incremento (`CREATE TABLE`, `PRIMARY KEY`, `AUTO_INCREMENT`)
 - [ ] Inserção de dados (`INSERT INTO`)
 - [ ] Consultas e filtros básicos (`SELECT`, `WHERE`, `ORDER BY`)
 - [ ] Relacionamento 1:N com Chave Estrangeira (`FOREIGN KEY`)
@@ -19,7 +20,9 @@ Bem-vindo à Semana 02! O objetivo aqui é eliminar qualquer trava com SQL, domi
 ## 📜 Histórico de Scripts
 
 ### 1. Tabela `herois`
+
 Criada para mapear os personagens que criamos na Semana 1 em Java:
+
 ```sql
 CREATE TABLE herois (
     id INT AUTO_INCREMENT PRIMARY KEY,
