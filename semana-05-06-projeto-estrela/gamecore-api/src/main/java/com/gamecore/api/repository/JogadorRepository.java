@@ -5,6 +5,7 @@ import com.gamecore.api.model.Jogador;
 import java.util.Optional;
 
 public interface JogadorRepository extends JpaRepository<Jogador, Long> {
+
     boolean existsByNome(String nome);
 
     Optional<Jogador> findByNome(String nome);
