@@ -27,6 +27,10 @@ public class Jogador {
     @Column(name = "moedas_ouro", nullable = false)
     private Double moedasOuro = 0.0;
 
+    @ManyToOne
+    @JoinColumn(name = "guilda_id")
+    private Guilda guilda;
+
     public Jogador() {
     }
 
@@ -102,6 +106,15 @@ public class Jogador {
 
     public void setMoedasOuro(Double moedasOuro) {
         this.moedasOuro = moedasOuro;
+    }
+
+    // guilda
+    public Guilda getGuilda() {
+        return guilda;
+    }
+
+    public void setGuilda(Guilda guilda) {
+        this.guilda = guilda;
     }
 
 }
