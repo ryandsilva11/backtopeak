@@ -9,7 +9,8 @@ public record JogadorResponseDTO(
         Integer nivel,
         Integer pontosVida,
         Integer pontosMana,
-        Double moedasOuro) {
+        Double moedasOuro,
+        String nomeGuilda) {
     // Construtor de conveniência: transforma uma Entidade Jogador diretamente em
     // DTO!
     public JogadorResponseDTO(Jogador jogador) {
@@ -20,6 +21,7 @@ public record JogadorResponseDTO(
                 jogador.getNivel(),
                 jogador.getPontosVida(),
                 jogador.getPontosMana(),
-                jogador.getMoedasOuro());
+                jogador.getMoedasOuro(),
+                jogador.getGuilda() != null ? jogador.getGuilda().getNome() : null);
     }
 }
