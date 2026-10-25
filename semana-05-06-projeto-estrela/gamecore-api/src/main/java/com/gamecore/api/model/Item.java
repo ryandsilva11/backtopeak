@@ -30,7 +30,7 @@ public class Item {
     }
 
     // 2. Construtor com argumentos
-    public Item(Long id, String nome, String tipo, Double preco, Integer poder) {
+    public Item(Long id, String nome, String tipo, Double preco, Integer poder, Integer quantidade) {
         this.id = id;
         this.nome = nome;
         this.tipo = tipo;
@@ -84,7 +84,7 @@ public class Item {
         this.quantidade = quantidade;
     }
 
-    public Integer getQuantidade()  {
+    public Integer getQuantidade() {
         return this.quantidade;
     }
 }

@@ -31,7 +31,8 @@ public class ItemService {
                 dto.nome(),
                 dto.tipo(),
                 dto.preco(),
-                dto.poder());
+                dto.poder(),
+                dto.quantidade());
 
         Item itemSalvo = itemRepository.save(novoItem);
         return new ItemResponseDTO(itemSalvo);

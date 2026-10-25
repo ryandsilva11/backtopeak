@@ -16,4 +16,9 @@ public interface ItemRepository extends JpaRepository<Item, Long> {
     // 3. (Bônus para a Loja) Permite filtrar itens por categoria (ex: só "ARMA" ou
     // só "POCAO")
     List<Item> findByTipo(String tipo);
+
+    List<Item> findByQuantidadeGreaterThan(Integer quantidade);
+
+    List<Item> findByTipoAndQuantidadeGreaterThan(String tipo, Integer quantidade);
+
 }
