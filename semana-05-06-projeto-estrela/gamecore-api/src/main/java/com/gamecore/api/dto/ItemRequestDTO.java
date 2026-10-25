@@ -12,6 +12,7 @@ public record ItemRequestDTO(
 
                 @NotNull(message = "O preço é obrigatório") @PositiveOrZero(message = "O preço não pode ser negativo") Double preco,
 
-                Integer poder // Opcional (pode ser null se o item for utilitário/cosmético)
-) {
+                Integer poder, // Opcional (pode ser null se o item for utilitário/cosmético
+
+                @NotNull(message = "A quantidade é obrigatória") @PositiveOrZero(message = "A quantidade não pode ser negativa") Integer quantidade) {
 }
