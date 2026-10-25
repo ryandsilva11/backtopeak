@@ -41,7 +41,7 @@ public class ItemService {
     // 2. Listar todo o catálogo da loja
     @Transactional(readOnly = true)
     public List<ItemResponseDTO> listarTodos() {
-        return itemRepository.findAll()
+        return itemRepository.findByQuantidadeGreaterThan(0)
                 .stream()
                 .map(ItemResponseDTO::new)
                 .toList();
@@ -59,7 +59,7 @@ public class ItemService {
     // 4. Filtrar itens por tipo (ARMA, ARMADURA, POCAO, etc.)
     @Transactional(readOnly = true)
     public List<ItemResponseDTO> listarPorTipo(String tipo) {
-        return itemRepository.findByTipo(tipo)
+        return itemRepository.findByTipoAndQuantidadeGreaterThan(tipo, 0)
                 .stream()
                 .map(ItemResponseDTO::new)
                 .toList();
