@@ -22,6 +22,9 @@ public class Item {
     @Column
     private Integer poder;
 
+    @Column
+    private Integer quantidade;
+
     // 1. Construtor padrão (obrigatório para o JPA)
     public Item() {
     }
@@ -33,6 +36,7 @@ public class Item {
         this.tipo = tipo;
         this.preco = preco;
         this.poder = poder;
+        this.quantidade = quantidade;
     }
 
     // 3. Getters e Setters
@@ -74,5 +78,13 @@ public class Item {
 
     public void setPoder(Integer poder) {
         this.poder = poder;
+    }
+
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public Integer getQuantidade()  {
+        return this.quantidade;
     }
 }
