@@ -41,20 +41,30 @@ public class LojaService {
         Item item = itemRepository.findById(dto.itemId())
                 .orElseThrow(() -> new RuntimeException("Item não encontrado com o ID: " + dto.itemId()));
 
-        // 3. Calcula o valor total da compra
+        // 3. NOVO: Validação de Estoque na Loja
+        if (item.getQuantidade() < dto.quantidade()) {
+            throw new RuntimeException("Estoque insuficiente na loja! Disponível: "
+                    + item.getQuantidade() + ", Solicitado: " + dto.quantidade());
+        }
+
+        // 4. Calcula o valor total da compra
         double custoTotal = item.getPreco() * dto.quantidade();
 
-        // 4. Validação de regra de negócio: Saldo Suficiente
+        // 5. Validação de regra de negócio: Saldo Suficiente
         if (jogador.getMoedasOuro() < custoTotal) {
             throw new RuntimeException("Saldo insuficiente! Ouro atual: "
                     + jogador.getMoedasOuro() + ", Custo total da compra: " + custoTotal);
         }
 
-        // 5. Debita as moedas de ouro do jogador
+        // 6. Debita as moedas de ouro do jogador
         jogador.setMoedasOuro(jogador.getMoedasOuro() - custoTotal);
         jogadorRepository.save(jogador);
 
-        // 6. Atualiza a mochila do jogador (empilha ou cria novo slot)
+        // 7. NOVO: Abate a quantidade comprada do estoque da loja
+        item.setQuantidade(item.getQuantidade() - dto.quantidade());
+        itemRepository.save(item);
+
+        // 8. Atualiza a mochila do jogador (empilha ou cria novo slot)
         Optional<Inventario> slotExistente = inventarioRepository.findByJogadorIdAndItemId(dto.jogadorId(),
                 dto.itemId());
 
@@ -71,7 +81,6 @@ public class LojaService {
         return new InventarioResponseDTO(inventarioSalvo);
     }
 
-    // 2. Consultar o inventário completo de um jogador
     @Transactional(readOnly = true)
     public List<InventarioResponseDTO> listarInventarioPorJogador(Long jogadorId) {
         if (!jogadorRepository.existsById(jogadorId)) {
