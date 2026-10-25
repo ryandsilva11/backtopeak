@@ -51,4 +51,11 @@ public class GuildaController {
         guildaService.adicionarMembro(guildaId, jogadorId);
         return ResponseEntity.noContent().build();
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletar(@PathVariable Long id) {
+        guildaService.deletar(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }

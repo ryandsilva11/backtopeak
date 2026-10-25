@@ -73,4 +73,18 @@ public class GuildaService {
         // = ...)
         jogadorRepository.save(jogador);
     }
+
+    @Transactional
+    public void deletar(Long id) {
+        Guilda guilda = guildaRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Guilda não encontrada com o ID: " + id));
+        // 1. Desvincula todos os jogadores da guilda (para não dar erro de FK no MySQL)
+        List<Jogador> membros = jogadorRepository.findByGuildaId(id);
+        for (Jogador membro : membros) {
+            membro.setGuilda(null);
+            jogadorRepository.save(membro);
+        }
+        // 2. Apaga a guilda com segurança
+        guildaRepository.delete(guilda);
+    }
 }
