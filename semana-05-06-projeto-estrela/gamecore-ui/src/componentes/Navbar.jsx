@@ -11,8 +11,8 @@ export default function Navbar({ carregando }) {
 
             <div className="navbar-status">
                 <div className="status-badge">
-                    <span className="status-dot"></span>
-                    {carregando ? 'Sincronizando...' : 'Servidor Conectado'}
+                        <span className="status-dot"></span>
+                        {carregando ? 'Sincronizando...' : 'Servidor Conectado'}
                 </div>
             </div>
         </header>
