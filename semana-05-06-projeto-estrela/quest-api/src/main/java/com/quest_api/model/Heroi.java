@@ -49,7 +49,7 @@ public class Heroi {
         this.nome = nome;
     }
 
-    public String getclasse() {
+    public String getClasse() {
         return this.classe;
     }
 
@@ -61,7 +61,7 @@ public class Heroi {
         return this.nivel;
     }
 
-    public Long setNivel(Long nivel) {
+    public void setNivel(Long nivel) {
         this.nivel = nivel;
     }
 
