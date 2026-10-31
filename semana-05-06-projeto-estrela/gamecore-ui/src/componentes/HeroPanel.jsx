@@ -26,7 +26,7 @@ export default function HeroPanel({ jogador }) {
                 <div className="bar-wrapper">
                     <div className="bar-header hp">
                         <span>Pontos de Vida</span>
-                        <span>{jogador ? `${jogador.pontosVida} / 100` : '--/--'}</span>
+                        <span>{jogador ? `${jogador.pontosVida} / 1000` : '--/--'}</span>
                     </div>
                     <div className="bar-track">
                         <div className="bar-fill hp" style={{ width: `${hpPorcentagem}%` }}></div>
@@ -36,7 +36,7 @@ export default function HeroPanel({ jogador }) {
                 <div className="bar-wrapper">
                     <div className="bar-header mp">
                         <span>Pontos de Mana</span>
-                        <span>{jogador ? `${jogador.pontosMana} / 50` : '--/--'}</span>
+                        <span>{jogador ? `${jogador.pontosMana} / 500` : '--/--'}</span>
                     </div>
                     <div className="bar-track">
                         <div className="bar-fill mp" style={{ width: `${mpPorcentagem}%` }}></div>
