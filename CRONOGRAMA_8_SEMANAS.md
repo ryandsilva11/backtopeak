@@ -153,10 +153,10 @@ timeline
 ## 📊 Checklist de Progresso
 
 - [X] **Semana 1:** Java & POO Reativados (Projeto Console concluído)
-- [ ] **Semana 2:** SQL Dominado (15 queries com Joins resolvidas)
-- [ ] **Semana 3:** Redes & HTTP (Testes no Postman concluídos)
-- [ ] **Semana 4:** JS Moderno & Async/Fetch Dominados
-- [ ] **Semana 5:** Backend da API construído e conectado ao Banco
+- [X] **Semana 2:** SQL Dominado (15 queries com Joins resolvidas)
+- [X] **Semana 3:** Redes & HTTP (Testes no Postman concluídos)
+- [X] **Semana 4:** JS Moderno & Async/Fetch Dominados
+- [X] **Semana 5:** Backend da API construído e conectado ao Banco
 - [ ] **Semana 6:** Frontend integrado ao Backend e Projeto publicado
 - [ ] **Semana 7:** LinkedIn e Currículo 100% atualizados
 - [ ] **Semana 8:** Primeiras 50 candidaturas enviadas + Simulações de Entrevista
