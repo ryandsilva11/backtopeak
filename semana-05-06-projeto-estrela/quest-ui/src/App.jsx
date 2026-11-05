@@ -1,122 +1,72 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { useState, useEffect } from 'react';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  // 1. Estados da nossa aplicação
+  const [herois, setHerois] = useState([]);
+  const [carregando, setCarregando] = useState(true);
 
+  // 2. Função assíncrona que chama a sua API Spring Boot
+  const carregarHerois = async () => {
+    try {
+      setCarregando(true);
+      const resposta = await fetch('http://localhost:8080/herois');
+
+      if (!resposta.ok) {
+        if (resposta.status === 404) {
+          throw new Error('Recurso não encontrado no servidor (Erro 404)');
+        } else if (resposta.status === 500) {
+          throw new Error('Erro interno no servidor Java/Banco de Dados (Erro 500)');
+        } else if (resposta.status === 400) {
+          throw new Error('Dados inválidos enviados para a API (Erro 400)');
+        } else {
+          throw new Error(`A API respondeu com o erro HTTP ${resposta.status}`);
+        }
+      }
+
+      const dados = await resposta.json();
+      setHerois(dados); // Guarda a lista vinda do banco no estado!
+    } catch (erro) {
+      console.error('Erro na requisição:', erro);
+    } finally {
+      setCarregando(false);
+    }
+  };
+
+  // 3. O useEffect dispara a busca UMA vez assim que a tela abre
+  useEffect(() => {
+    carregarHerois();
+  }, []);
+
+  // 4. O Visual (JSX)
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div style={{ maxWidth: '800px', margin: '0 auto', padding: '20px', fontFamily: 'sans-serif' }}>
+      <h1>🗡️ Painel de Heróis - Quest API</h1>
+      <hr />
 
-      <div className="ticks"></div>
+      {/* Exibição condicional enquanto busca na API */}
+      {carregando && <p>Carregando heróis da guilda...</p>}
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+      {!carregando && herois.length === 0 && (
+        <p>Nenhum herói cadastrado ainda no banco de dados.</p>
+      )}
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+      {/* Renderização da lista de heróis */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '15px', marginTop: '20px' }}>
+        {herois.map((heroi) => (
+          <div
+            key={heroi.id}
+            style={{ border: '1px solid #ccc', borderRadius: '8px', padding: '15px', backgroundColor: '#f9f9f9', color: '#333' }}
+          >
+            <h3 style={{ margin: '0 0 10px 0' }}>{heroi.nome}</h3>
+            <p style={{ margin: '5px 0' }}><strong>Classe:</strong> {heroi.classe}</p>
+            <p style={{ margin: '5px 0' }}><strong>Nível:</strong> {heroi.nivel}</p>
+            <p style={{ margin: '5px 0' }}><strong>XP:</strong> {heroi.xp}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
 
-export default App
+export default App;
