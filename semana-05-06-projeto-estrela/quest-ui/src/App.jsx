@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import HeroiCard from './componentes/HeroiCard';
+import HeroiForm from './componentes/HeroiForm';
 import './App.css';
 
 function App() {
@@ -34,11 +35,17 @@ function App() {
     carregarHerois();
   }, []);
 
+  const adicionarHeroiNaLista = (novoHeroi) => {
+    setHerois((listaAnterior) => [...listaAnterior, novoHeroi]);
+  };
+
   return (
     <div className="container">
       <h1 className="titulo-principal">🗡️ Painel de Heróis - Quest API</h1>
       <h2 className="subtitulo">Gerenciador de Aventureiros da Guilda</h2>
       <hr className="divisor" />
+
+      <HeroiForm onHeroiCriado={adicionarHeroiNaLista} />
 
       {carregando && <p className="mensagem-alerta">Carregando heróis da guilda...</p>}
 
