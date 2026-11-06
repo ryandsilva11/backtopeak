@@ -1,4 +1,3 @@
-import "./HeroiCard.css";
 
 // O componente recebe 'heroi' via PROPS (parâmetro da função)
 function HeroiCard({ heroi }) {

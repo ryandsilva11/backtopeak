@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import './HeroiForm.css';
 
 // Recebe a prop 'onHeroiCriado' do Pai (App.jsx)
 function HeroiForm({ onHeroiCriado }) {
