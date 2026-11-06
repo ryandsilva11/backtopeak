@@ -1,20 +1,34 @@
+import { Box, Heading, Text, Badge, VStack } from '@chakra-ui/react';
 
-// O componente recebe 'heroi' via PROPS (parâmetro da função)
 function HeroiCard({ heroi }) {
     return (
-        <div className="card-heroi">
-            <h3>{heroi.nome}</h3>
-            <p className="info-item">
-                <strong>Classe:</strong> <span className="badge-classe">{heroi.classe}</span>
-            </p>
-            <p className="info-item">
-                <strong>Nível:</strong> {heroi.nivel}
-            </p>
-            <p className="info-item">
-                <strong>XP:</strong> {heroi.xp}
-            </p>
-        </div>
-    );
+        <Box
+            p="5"
+            borderWidth="1px"
+            borderRadius="md"
+            bg="white"
+            shadow="sm"
+            _hover={{ shadow: 'md', transform: 'translateY(-2px)' }}
+        >
+            <VStack align="start" gap="2">
+                <Heading size="md" color="blue.600">
+                    {heroi.nome}
+                </Heading>
+
+                <Text fontSize="sm" color="gray.600">
+                    <Badge colorPalette="teal" variant="subtle">
+                        {heroi.classe}
+                    </Badge>
+                </Text>
+                <Text fontSize="sm" color="gray.600">
+                    <strong>Nível:</strong> {heroi.nivel}
+                </Text>
+                <Text fontSize="sm" color="gray.600">
+                    <strong>XP:</strong> {heroi.xp}
+                </Text>
+            </VStack>
+        </Box>
+    )
 }
 
-export default HeroiCard;
+export default HeroiCard; 
