@@ -49,8 +49,6 @@ function App() {
 
       {carregando && <p className="mensagem-alerta">Carregando heróis da guilda...</p>}
 
-      {carregando && <p className="mensagem-alerta">Carregando heróis da guilda...</p>}
-
       {!carregando && herois.length === 0 && (
         <p className="mensagem-alerta">Nenhum herói cadastrado ainda no banco de dados.</p>
       )}

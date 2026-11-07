@@ -4,19 +4,40 @@ import { Box, Heading, Input, Button } from '@chakra-ui/react';
 function HeroiForm({ onHeroiCriado }) {
     const [nome, setNome] = useState('');
     const [classe, setClasse] = useState('Guerreiro');
+    // 1. O guarda-costas contra múltiplos cliques
+    const [salvando, setSalvando] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const resposta = await fetch('http://localhost:8080/herois', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ nome, classe }),
-        });
+        // 2. Proteção: se o nome estiver vazio ou se já estiver salvando, NÃO FAZ NADA!
+        if (!nome.trim() || salvando) return;
 
-        const heroiCriado = await resposta.json();
-        onHeroiCriado(heroiCriado);
-        setNome('');
+        setSalvando(true);
+
+        try {
+            const resposta = await fetch('http://localhost:8080/herois', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ nome, classe }),
+            });
+
+            // 3. Proteção: se o Spring Boot devolver erro (400, 500), aborte! Não desenhe card fantasma!
+            if (!resposta.ok) {
+                alert('Erro ao cadastrar herói na API!');
+                return;
+            }
+
+            const heroiCriado = await resposta.json();
+            onHeroiCriado(heroiCriado);
+            setNome('');
+
+        } catch (erro) {
+            console.error('Falha de rede:', erro);
+        } finally {
+            // 4. Libera o botão novamente
+            setSalvando(false);
+        }
     };
 
     return (
@@ -46,8 +67,9 @@ function HeroiForm({ onHeroiCriado }) {
                     <option value="Ladino">Ladino</option>
                 </select>
 
-                <Button type="submit" colorPalette="blue">
-                    Cadastrar Herói
+                {/* Enquanto estiver salvando, o botão fica desabilitado! */}
+                <Button type="submit" colorPalette="blue" disabled={salvando}>
+                    {salvando ? 'Salvando...' : 'Cadastrar Herói'}
                 </Button>
             </form>
         </Box>
