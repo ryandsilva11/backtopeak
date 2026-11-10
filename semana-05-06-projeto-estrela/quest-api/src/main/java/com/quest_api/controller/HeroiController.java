@@ -10,7 +10,7 @@ import com.quest_api.dto.HeroiResponseDTO;
 import com.quest_api.service.HeroiService;
 
 @RestController
-@ResquestMapping("/herois")
+@RequestMapping("/herois")
 public class HeroiController {
 
     private final HeroiService service;

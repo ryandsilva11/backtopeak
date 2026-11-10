@@ -22,7 +22,7 @@ public class HeroiService {
     @Transactional
     public HeroiResponseDTO create(HeroiRequestDTO dto) {
         if (repository.existsByNome(dto.nome())) {
-            throw new RuntimeException("...");
+            throw new RuntimeException("Já existe um herói com esse nome cadastrado");
         }
 
         Heroi heroi = new Heroi(
