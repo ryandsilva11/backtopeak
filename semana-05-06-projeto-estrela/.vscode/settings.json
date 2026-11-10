@@ -1,3 +1,27 @@
 {
-    "java.compile.nullAnalysis.mode": "disabled"
+    "java.compile.nullAnalysis.mode": "disabled",
+    "java.jdt.ls.java.home": "C:\\Program Files\\Java\\jdk-21.0.10",
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-21",
+            "path": "C:\\Program Files\\Java\\jdk-21.0.10",
+            "default": true
+        }
+    ],
+    "files.associations": {
+        "*.java": "java"
+    },
+    "editor.inlineSuggest.enabled": true,
+    "editor.suggestOnTriggerCharacters": true,
+    "editor.quickSuggestions": {
+        "other": "on",
+        "comments": "off",
+        "strings": "on"
+    },
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggest.insertMode": "replace",
+    "editor.tabCompletion": "on",
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.import.maven.enabled": true,
+    "java.autobuild.enabled": true
 }
