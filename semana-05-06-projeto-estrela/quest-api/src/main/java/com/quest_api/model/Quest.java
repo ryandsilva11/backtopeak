@@ -26,6 +26,9 @@ public class Quest {
     @Column
     private boolean concluida;
 
+    public Quest() {
+    }
+
     public Quest(Long id, String titulo, Long xp, String loot, Long lootQnt, boolean concluida) {
         this.id = id;
         this.titulo = titulo;
