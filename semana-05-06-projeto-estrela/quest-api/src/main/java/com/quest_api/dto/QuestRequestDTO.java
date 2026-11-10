@@ -1,5 +1,6 @@
 package com.quest_api.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.AssertTrue;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -15,10 +16,11 @@ public record QuestRequestDTO(
 
         Long lootQnt) {
 
+    @JsonIgnore
     @AssertTrue(message = "Caso haja algum loot, a quantidade deve ser informada")
     public boolean isLootValido() {
         if (loot == null || loot.isBlank()) {
-            return true;
+            return lootQnt == null;
         }
 
         return lootQnt != null && lootQnt >= 1;
