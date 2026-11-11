@@ -1,0 +1,9 @@
+# Arquivos locais de mentoria e planejamento pessoal
+AGENTS.md
+CRONOGRAMA_8_SEMANAS.md
+
+# Temporarios, logs e sistema operacional
+*.log
+.DS_Store
+Thumbs.db
+
